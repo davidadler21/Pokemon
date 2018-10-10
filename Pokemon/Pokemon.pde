@@ -4,18 +4,23 @@ int totalTime;
 int microTime;
 
 Start startButton; 
+TrymButton tb;
 
 void setup() {
   size(500, 500);
-  startButton = new Start(0, "Start Game", 30, 30);
+  startButton = new Start("Start Game", 200, 200);
+  tb = new TrymButton("Trym", 200, 200);
 }
 
 void draw() {
   background(0);
   startButton.display();
-  startButton.ifClicked();
+  tb.display();
   timingDevice();
   listValueNumRestrictions();
+  if (startButton.gameStarted) {
+    
+  }
 }
 
 void timingDevice() {

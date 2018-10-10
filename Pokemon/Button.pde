@@ -2,7 +2,7 @@ public abstract class Button {
   boolean isSelected;
   boolean clicked;
   boolean menuIsOpen;
-  int listValue;
+  int listValue = 0;
   int x;
   int y;
   String name;
@@ -15,14 +15,20 @@ public abstract class Button {
     if (menuIsOpen) {
       fill(150);
       textSize(12);
-      text(name, x, y);
+      text(name, x, y+5);
       if (isSelected) {
-        fill(150);
-        triangle(x-10, y, x-20, y+10, x-20, y-10);
+        if (microTime > lag+50) {
+          triangle(x-7, y, x-17, y+5, x-17, y-5);
+          lag = microTime; 
+        }
+        else {
+          triangle(x-10, y, x-20, y+5, x-20, y-5);
+        }
       }
     }
     this.listChange();
     this.countActiveButtons();
+    this.ifClicked();
   }
 
   public abstract void ifClicked();
@@ -44,6 +50,9 @@ public abstract class Button {
       else {
         isSelected = false;
       }
+    }
+    else {
+      this.listValue = activeButtons + 1;
     }
   }
   

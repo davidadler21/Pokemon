@@ -1,9 +1,8 @@
 public class Start extends Button {
   boolean gameStarted = false;
 
-  Start(int listvalue, String Name, int xx, int xy) {
+  Start(String Name, int xx, int xy) {
     menuIsOpen = true;
-    listValue = listvalue;
     x = xx;
     y = xy;
     name = Name;
@@ -14,6 +13,7 @@ public class Start extends Button {
       if (isSelected && key == 'a') {
         gameStarted = true;
         this.menuIsOpen = false; 
+        tb.menuIsOpen = true;
       }
     }
   }
