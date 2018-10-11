@@ -7,12 +7,13 @@ public abstract class Button {
   int y;
   String name;
   int lag = 0;
-  boolean isActive = true;
+  boolean isActive = false;
   Button() {
     
   }
   public void display() {
     if (menuIsOpen) {
+      this.ifClicked();
       fill(150);
       textSize(12);
       text(name, x, y+5);
@@ -28,7 +29,6 @@ public abstract class Button {
     }
     this.listChange();
     this.countActiveButtons();
-    this.ifClicked();
   }
 
   public abstract void ifClicked();
@@ -52,7 +52,7 @@ public abstract class Button {
       }
     }
     else {
-      this.listValue = activeButtons + 1;
+      this.listValue = activeButtons-1;
     }
   }
   

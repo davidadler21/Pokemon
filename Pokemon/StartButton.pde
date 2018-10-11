@@ -11,7 +11,7 @@ public class Start extends Button {
   public void ifClicked() {
     if (keyPressed) {
       if (isSelected && key == 'a') {
-        gameStarted = true;
+        lag = microTime;
         this.menuIsOpen = false; 
         tb.menuIsOpen = true;
       }
