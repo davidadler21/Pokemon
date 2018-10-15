@@ -51,9 +51,6 @@ public abstract class Button {
         isSelected = false;
       }
     }
-    else {
-      this.listValue = activeButtons-1;
-    }
   }
   
   public void countActiveButtons() {

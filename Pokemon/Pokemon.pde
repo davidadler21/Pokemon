@@ -8,8 +8,12 @@ Start test;
 TrymButton tb;
 Player trym;
 Background b;
+PokemonButton enterP;
+BagButton enterBag;
 
 PImage tsd;
+PImage m;
+PImage SF;
 
 void setup() {
   size(500, 500);
@@ -18,6 +22,10 @@ void setup() {
   tsd = loadImage("TSD.png");
   trym = new Player();
   b = new Background();
+  enterP = new PokemonButton("Pokemon", 380, 40);
+  m = loadImage("menu.png");
+  enterBag = new BagButton("Bag", 380, 80);
+  SF = loadImage("shaymin.png");
 }
 
 void draw() {
@@ -28,8 +36,12 @@ void draw() {
   tb.display();
   timingDevice();
   if (startButton.gameStarted) {
-    b.movement();
-    trym.display();
+    if (!enterP.myPokemon) {
+      b.movement();
+      trym.display();
+      b.grass();
+    }
+    playerMenu();
   }
 }
 
@@ -41,8 +53,7 @@ void timingDevice() {
 void listValueNumRestrictions() {
   if (listValueNum < 0) {
     listValueNum++;
-  }
-  else if (listValueNum >= activeButtons) {
+  } else if (listValueNum >= activeButtons) {
     listValueNum--;
   }
 }

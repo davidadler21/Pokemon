@@ -11,6 +11,7 @@ public class TrymButton extends Button {
     super.display();
     if (isSelected && menuIsOpen) {
       image(tsd, 200, 150, 375, 250);
+      image(SF, 225, 145, 60, 60);
     }
   }
   

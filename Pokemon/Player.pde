@@ -16,8 +16,8 @@ public class Player {
   boolean rightKey = false;
   boolean leftKey = false;
   boolean ivii = false;
-  int x = 0;
-  int y = 0;
+  int x = -100;
+  int y = -100;
 
   Player() {
     tsl = loadImage("TSL.png");
@@ -36,29 +36,28 @@ public class Player {
   public void display() {
     if (upKey == true) {
       if (keyPressed == true) {
-        if (keyCode == UP) {
-        y+=1;
-        if (y % 15 == 0 && !ivii) {
-          ivii = true;
-        } else if (y % 15 == 0 && ivii) {
-          ivii = false;
-        }
-        if (ivii) {
-          image(twu1, 250, 250, 375, 250);
+        if (keyCode == UP && !menu) {
+          y+=2;
+          if (y % 15 == 0 && !ivii) {
+            ivii = true;
+          } else if (y % 15 == 0 && ivii) {
+            ivii = false;
+          }
+          if (ivii) {
+            image(twu1, 250, 250, 375, 250);
+          } else {
+            image(twu2, 250, 250, 375, 250);
+          }
         } else {
-          image(twu2, 250, 250, 375, 250);
+          image(tsu, 250, 250, 375, 250);
         }
-        }
-        else {
-        image(tsu, 250, 250, 375, 250);
-      }
       } else {
         image(tsu, 250, 250, 375, 250);
       }
     } else if (downKey == true) {
       if (keyPressed == true) {
-        if (keyCode == DOWN) {
-          y-=1;
+        if (keyCode == DOWN && !menu) {
+          y-=2;
           if (y % 15 == 0 && !ivii) {
             ivii = true;
           } else if (y % 15 == 0 && ivii) {
@@ -77,8 +76,8 @@ public class Player {
       }
     } else if (leftKey == true) {
       if (keyPressed == true) {
-        if (keyCode == LEFT) {
-          x+=1;
+        if (keyCode == LEFT && !menu) {
+          x+=2;
           if (x % 15 == 0 && !ivii) {
             ivii = true;
           } else if (x % 15 == 0 & ivii) {
@@ -97,8 +96,8 @@ public class Player {
       }
     } else {
       if (keyPressed == true) {
-        if (keyCode == RIGHT) {
-          x-=1;
+        if (keyCode == RIGHT && !menu) {
+          x-=2;
           if (x % 15 == 0 && !ivii) {
             ivii = true;
           } else if (x % 15 == 0 & ivii) {
