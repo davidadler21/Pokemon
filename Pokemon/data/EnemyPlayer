@@ -1,0 +1,61 @@
+public class EnemyPlayer {
+int enemyY = 20;
+
+boolean ivii = false;
+boolean walk = false;
+boolean playerMove = false;
+boolean playBattle = false;
+
+
+
+PImage leftStep;
+PImage rightStep;
+PImage standing;
+
+EnemyPlayer(){
+  standing = loadImage("DSNPC1.png");
+  leftStep = loadImage("DSWRNPC1.png");
+  rightStep = loadImage("DWLNPC1.png");
+
+}
+
+public void display(){
+engageBattle();
+
+}
+
+public void engageBattle(){
+  if(trym.x <= -465 && trym.y <= 10 && trym.y >= -340 && enemyY + trym.y + 210 <= 210 && walk == false){
+    enemyY += 2;
+    playerMove = true;
+    if (enemyY % 15 == 0 && !ivii) {
+      ivii = true;
+    }
+    else if (enemyY % 15 == 0 && ivii) {
+      ivii = false;
+    }
+    if (ivii) {
+      image(leftStep, trym.x + 720, enemyY + trym.y + 210, 30, 30);
+    }
+    else {
+      image(rightStep, trym.x + 720, enemyY + trym.y + 210, 30, 30);
+    }
+    if(enemyY + trym.y + 210 == 210){
+      walk = true;
+      playerMove = true;
+    }
+  }
+  else if (enemyY > 0 && enemyY + trym.y + 210 <= 210  && walk == true) {
+      image(standing, trym.x + 720, enemyY + trym.y + 210, 30, 30);
+      playBattle = true;
+      wildEnc.inBattle = false;
+      //System.out.println(playBattle);
+      //System.out.println(wildEnc.inBattle);
+    }
+  else {
+      image(standing, trym.x + 720, enemyY + trym.y + 210, 30, 30);
+  }
+
+
+  }
+}

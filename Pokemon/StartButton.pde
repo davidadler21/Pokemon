@@ -1,3 +1,4 @@
+//This was made by David.
 public class Start extends Button {
   boolean gameStarted = false;
 
@@ -11,8 +12,8 @@ public class Start extends Button {
   public void ifClicked() {
     if (keyPressed) {
       if (isSelected && key == 'a') {
-        lag = microTime;
-        this.menuIsOpen = false; 
+        lagB = microTime;
+        this.menuIsOpen = false;
         tb.menuIsOpen = true;
       }
     }
